@@ -7,6 +7,9 @@ import {
   boxplotInitializationFunction3,
   boxplotInitializationFunction4,
 } from "./boxPlotCharts";
+
+import {ChartGroupLoader} from "./ChartGroupLoader";
+
 /**
  * A function executed within SciChartReact with provided chart root element,
  * creates a SciChartSurface instance and returns a reference to it.
@@ -17,7 +20,7 @@ import {
 
 const BasicChartWithInitFunction = () => (
   <div className="flex flex-row min-h-screen justify-center items-center">
-    <div style={{ width: 900, height: 600, display: "flex", flexWrap: "wrap" }}>
+    <ChartGroupLoader style={{ width: 900, height: 600, display: "flex", flexWrap: "wrap" }}>
       <SciChartReact
         style={{ width: "50%", height: 300 }}
         initChart={boxplotInitializationFunction1}
@@ -34,7 +37,7 @@ const BasicChartWithInitFunction = () => (
         style={{ width: "50%", height: 300 }}
         initChart={boxplotInitializationFunction4}
       />
-    </div>
+    </ChartGroupLoader>
   </div>
 );
 

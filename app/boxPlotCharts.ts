@@ -183,11 +183,11 @@ export const boxplotInitializationFunction2 = async (
 
   const boxPlotDataSeries = new BoxPlotDataSeries(wasmContext, {
     xValues,
-    minimumValues,
+    minimumValues: minimumValues.reverse(),
     maximumValues,
-    medianValues,
+    medianValues: medianValues.reverse(),
     lowerQuartileValues,
-    upperQuartileValues,
+    upperQuartileValues: upperQuartileValues.reverse(),
   });
 
   const boxSeries = new FastBoxPlotRenderableSeries(wasmContext, {
@@ -271,9 +271,9 @@ export const boxplotInitializationFunction3 = async (
   const boxPlotDataSeries = new BoxPlotDataSeries(wasmContext, {
     xValues,
     minimumValues,
-    maximumValues,
+    maximumValues: maximumValues.reverse(),
     medianValues,
-    lowerQuartileValues,
+    lowerQuartileValues: lowerQuartileValues.reverse(),
     upperQuartileValues,
   });
 
@@ -358,9 +358,9 @@ export const boxplotInitializationFunction4 = async (
   const boxPlotDataSeries = new BoxPlotDataSeries(wasmContext, {
     xValues,
     minimumValues,
-    maximumValues,
-    medianValues,
-    lowerQuartileValues,
+    maximumValues: maximumValues.reverse(),
+    medianValues: medianValues.reverse(),
+    lowerQuartileValues: lowerQuartileValues.reverse(),
     upperQuartileValues,
   });
 

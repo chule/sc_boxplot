@@ -106,7 +106,6 @@ async function initSciChart(rootElement: string | HTMLDivElement) {
     upperQuartileValues,
   });
 
-  
   const boxSeries = new FastBoxPlotRenderableSeries(wasmContext, {
     dataSeries: boxPlotDataSeries,
     stroke: "Black",
@@ -160,137 +159,137 @@ async function initSciChart(rootElement: string | HTMLDivElement) {
     // new CursorModifier({ showTooltip: true })
   );
 
-  const rectangleSeries = new FastRectangleRenderableSeries(wasmContext, {
-    dataSeries: new XyxyDataSeries(wasmContext, {
-      xValues: xValues.map((d) => d - 0.2),
-      yValues: lowerQuartileValues,
-      x1Values: xValues.map((d) => d + 0.2),
-      y1Values: upperQuartileValues,
-    }),
-    columnXMode: EColumnMode.StartEnd,
-    columnYMode: EColumnYMode.TopBottom,
-    dataPointWidth: 1,
-    dataPointWidthMode: EDataPointWidthMode.Range,
-    stroke: "black",
-    strokeThickness: 2,
-    fill: "steelblue",
-    opacity: 0.5,
-    resamplingMode: EResamplingMode.None,
-    topCornerRadius: 2,
-    bottomCornerRadius: 2,
-  });
+  // const rectangleSeries = new FastRectangleRenderableSeries(wasmContext, {
+  //   dataSeries: new XyxyDataSeries(wasmContext, {
+  //     xValues: xValues.map((d) => d - 0.2),
+  //     yValues: lowerQuartileValues,
+  //     x1Values: xValues.map((d) => d + 0.2),
+  //     y1Values: upperQuartileValues,
+  //   }),
+  //   columnXMode: EColumnMode.StartEnd,
+  //   columnYMode: EColumnYMode.TopBottom,
+  //   dataPointWidth: 1,
+  //   dataPointWidthMode: EDataPointWidthMode.Range,
+  //   stroke: "black",
+  //   strokeThickness: 2,
+  //   fill: "steelblue",
+  //   opacity: 0.5,
+  //   resamplingMode: EResamplingMode.None,
+  //   topCornerRadius: 2,
+  //   bottomCornerRadius: 2,
+  // });
 
-  sciChartSurface.renderableSeries.add(rectangleSeries);
+  // sciChartSurface.renderableSeries.add(rectangleSeries);
 
-  const topVertLinesSeries = new FastRectangleRenderableSeries(wasmContext, {
-    dataSeries: new XyxyDataSeries(wasmContext, {
-      xValues: xValues.map((d) => d - 0.005),
-      yValues: upperQuartileValues,
-      x1Values: xValues.map((d) => d + 0.005),
-      y1Values: maximumValues,
-    }),
-    columnXMode: EColumnMode.StartEnd,
-    columnYMode: EColumnYMode.TopBottom,
-    dataPointWidth: 1,
-    dataPointWidthMode: EDataPointWidthMode.Range,
-    stroke: "black",
-    strokeThickness: 2,
-    fill: "steelblue",
-    opacity: 0.5,
-    resamplingMode: EResamplingMode.None,
-    topCornerRadius: 2,
-    bottomCornerRadius: 2,
-  });
+  // const topVertLinesSeries = new FastRectangleRenderableSeries(wasmContext, {
+  //   dataSeries: new XyxyDataSeries(wasmContext, {
+  //     xValues: xValues.map((d) => d - 0.005),
+  //     yValues: upperQuartileValues,
+  //     x1Values: xValues.map((d) => d + 0.005),
+  //     y1Values: maximumValues,
+  //   }),
+  //   columnXMode: EColumnMode.StartEnd,
+  //   columnYMode: EColumnYMode.TopBottom,
+  //   dataPointWidth: 1,
+  //   dataPointWidthMode: EDataPointWidthMode.Range,
+  //   stroke: "black",
+  //   strokeThickness: 2,
+  //   fill: "steelblue",
+  //   opacity: 0.5,
+  //   resamplingMode: EResamplingMode.None,
+  //   topCornerRadius: 2,
+  //   bottomCornerRadius: 2,
+  // });
 
-  sciChartSurface.renderableSeries.add(topVertLinesSeries);
+  // sciChartSurface.renderableSeries.add(topVertLinesSeries);
 
-  const bottomVertLinesSeries = new FastRectangleRenderableSeries(wasmContext, {
-    dataSeries: new XyxyDataSeries(wasmContext, {
-      xValues: xValues.map((d) => d - 0.005),
-      yValues: minimumValues,
-      x1Values: xValues.map((d) => d + 0.005),
-      y1Values: lowerQuartileValues,
-    }),
-    columnXMode: EColumnMode.StartEnd,
-    columnYMode: EColumnYMode.TopBottom,
-    dataPointWidth: 1,
-    dataPointWidthMode: EDataPointWidthMode.Range,
-    stroke: "black",
-    strokeThickness: 2,
-    fill: "steelblue",
-    opacity: 0.5,
-    resamplingMode: EResamplingMode.None,
-    topCornerRadius: 2,
-    bottomCornerRadius: 2,
-  });
+  // const bottomVertLinesSeries = new FastRectangleRenderableSeries(wasmContext, {
+  //   dataSeries: new XyxyDataSeries(wasmContext, {
+  //     xValues: xValues.map((d) => d - 0.005),
+  //     yValues: minimumValues,
+  //     x1Values: xValues.map((d) => d + 0.005),
+  //     y1Values: lowerQuartileValues,
+  //   }),
+  //   columnXMode: EColumnMode.StartEnd,
+  //   columnYMode: EColumnYMode.TopBottom,
+  //   dataPointWidth: 1,
+  //   dataPointWidthMode: EDataPointWidthMode.Range,
+  //   stroke: "black",
+  //   strokeThickness: 2,
+  //   fill: "steelblue",
+  //   opacity: 0.5,
+  //   resamplingMode: EResamplingMode.None,
+  //   topCornerRadius: 2,
+  //   bottomCornerRadius: 2,
+  // });
 
-  sciChartSurface.renderableSeries.add(bottomVertLinesSeries);
+  // sciChartSurface.renderableSeries.add(bottomVertLinesSeries);
 
-  const medianLinesSeries = new FastRectangleRenderableSeries(wasmContext, {
-    dataSeries: new XyxyDataSeries(wasmContext, {
-      xValues: xValues.map((d) => d - 0.2),
-      yValues: medianValues.map((d) => d - 0.1),
-      x1Values: xValues.map((d) => d + 0.2),
-      y1Values: medianValues.map((d) => d + 0.1),
-    }),
-    columnXMode: EColumnMode.StartEnd,
-    columnYMode: EColumnYMode.TopBottom,
-    dataPointWidth: 1,
-    dataPointWidthMode: EDataPointWidthMode.Range,
-    stroke: "black",
-    strokeThickness: 2,
-    fill: "white",
-    opacity: 0.5,
-    resamplingMode: EResamplingMode.None,
-    topCornerRadius: 2,
-    bottomCornerRadius: 2,
-  });
+  // const medianLinesSeries = new FastRectangleRenderableSeries(wasmContext, {
+  //   dataSeries: new XyxyDataSeries(wasmContext, {
+  //     xValues: xValues.map((d) => d - 0.2),
+  //     yValues: medianValues.map((d) => d - 0.1),
+  //     x1Values: xValues.map((d) => d + 0.2),
+  //     y1Values: medianValues.map((d) => d + 0.1),
+  //   }),
+  //   columnXMode: EColumnMode.StartEnd,
+  //   columnYMode: EColumnYMode.TopBottom,
+  //   dataPointWidth: 1,
+  //   dataPointWidthMode: EDataPointWidthMode.Range,
+  //   stroke: "black",
+  //   strokeThickness: 2,
+  //   fill: "white",
+  //   opacity: 0.5,
+  //   resamplingMode: EResamplingMode.None,
+  //   topCornerRadius: 2,
+  //   bottomCornerRadius: 2,
+  // });
 
-  sciChartSurface.renderableSeries.add(medianLinesSeries);
+  // sciChartSurface.renderableSeries.add(medianLinesSeries);
 
-  const topLinesSeries = new FastRectangleRenderableSeries(wasmContext, {
-    dataSeries: new XyxyDataSeries(wasmContext, {
-      xValues: xValues.map((d) => d - 0.15),
-      yValues: maximumValues.map((d) => d - 0.1),
-      x1Values: xValues.map((d) => d + 0.15),
-      y1Values: maximumValues.map((d) => d + 0.1),
-    }),
-    columnXMode: EColumnMode.StartEnd,
-    columnYMode: EColumnYMode.TopBottom,
-    dataPointWidth: 1,
-    dataPointWidthMode: EDataPointWidthMode.Range,
-    stroke: "black",
-    strokeThickness: 2,
-    fill: "steelblue",
-    opacity: 0.5,
-    resamplingMode: EResamplingMode.None,
-    topCornerRadius: 2,
-    bottomCornerRadius: 2,
-  });
+  // const topLinesSeries = new FastRectangleRenderableSeries(wasmContext, {
+  //   dataSeries: new XyxyDataSeries(wasmContext, {
+  //     xValues: xValues.map((d) => d - 0.15),
+  //     yValues: maximumValues.map((d) => d - 0.1),
+  //     x1Values: xValues.map((d) => d + 0.15),
+  //     y1Values: maximumValues.map((d) => d + 0.1),
+  //   }),
+  //   columnXMode: EColumnMode.StartEnd,
+  //   columnYMode: EColumnYMode.TopBottom,
+  //   dataPointWidth: 1,
+  //   dataPointWidthMode: EDataPointWidthMode.Range,
+  //   stroke: "black",
+  //   strokeThickness: 2,
+  //   fill: "steelblue",
+  //   opacity: 0.5,
+  //   resamplingMode: EResamplingMode.None,
+  //   topCornerRadius: 2,
+  //   bottomCornerRadius: 2,
+  // });
 
-  sciChartSurface.renderableSeries.add(topLinesSeries);
+  // sciChartSurface.renderableSeries.add(topLinesSeries);
 
-  const bottomLinesSeries = new FastRectangleRenderableSeries(wasmContext, {
-    dataSeries: new XyxyDataSeries(wasmContext, {
-      xValues: xValues.map((d) => d - 0.15),
-      yValues: minimumValues.map((d) => d - 0.1),
-      x1Values: xValues.map((d) => d + 0.15),
-      y1Values: minimumValues.map((d) => d + 0.1),
-    }),
-    columnXMode: EColumnMode.StartEnd,
-    columnYMode: EColumnYMode.TopBottom,
-    dataPointWidth: 1,
-    dataPointWidthMode: EDataPointWidthMode.Range,
-    stroke: "black",
-    strokeThickness: 2,
-    fill: "steelblue",
-    opacity: 0.5,
-    resamplingMode: EResamplingMode.None,
-    topCornerRadius: 2,
-    bottomCornerRadius: 2,
-  });
+  // const bottomLinesSeries = new FastRectangleRenderableSeries(wasmContext, {
+  //   dataSeries: new XyxyDataSeries(wasmContext, {
+  //     xValues: xValues.map((d) => d - 0.15),
+  //     yValues: minimumValues.map((d) => d - 0.1),
+  //     x1Values: xValues.map((d) => d + 0.15),
+  //     y1Values: minimumValues.map((d) => d + 0.1),
+  //   }),
+  //   columnXMode: EColumnMode.StartEnd,
+  //   columnYMode: EColumnYMode.TopBottom,
+  //   dataPointWidth: 1,
+  //   dataPointWidthMode: EDataPointWidthMode.Range,
+  //   stroke: "black",
+  //   strokeThickness: 2,
+  //   fill: "steelblue",
+  //   opacity: 0.5,
+  //   resamplingMode: EResamplingMode.None,
+  //   topCornerRadius: 2,
+  //   bottomCornerRadius: 2,
+  // });
 
-  sciChartSurface.renderableSeries.add(bottomLinesSeries);
+  // sciChartSurface.renderableSeries.add(bottomLinesSeries);
 
   return { sciChartSurface };
 }

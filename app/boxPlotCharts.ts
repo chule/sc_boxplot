@@ -10,7 +10,6 @@ import {
   LabelProviderBase2D,
   NumberRange,
   NumericAxis,
-  SciChartJsNavyTheme,
   SciChartSurface,
 } from "scichart";
 
@@ -25,9 +24,6 @@ function getGaussianRandom(mean: number, stdDev: number): number {
 }
 
 console.log("getGaussianRandom", getGaussianRandom(0, 2));
-
-const isVertical = true;
-const isXCategoryAxis = false;
 
 class CustomLabelProvider extends LabelProviderBase2D {
   type!: string;
@@ -45,15 +41,20 @@ class CustomLabelProvider extends LabelProviderBase2D {
   }
 }
 
+import { appTheme } from "./theme";
+
 export const boxplotInitializationFunction1 = async (
   rootElement: string | HTMLDivElement
 ): Promise<{ sciChartSurface: SciChartSurface }> => {
   const { sciChartSurface, wasmContext } = await SciChartSurface.create(
     rootElement,
     {
-      theme: new SciChartJsNavyTheme(),
+      theme: appTheme.SciChartJsTheme,
     }
   );
+
+  const isVertical = true;
+  const isXCategoryAxis = false;
 
   const configCategoryAxis: ICategoryAxisOptions = {
     labelFormat: ENumericFormat.Decimal,
@@ -105,25 +106,25 @@ export const boxplotInitializationFunction1 = async (
 
   const boxSeries = new FastBoxPlotRenderableSeries(wasmContext, {
     dataSeries: boxPlotDataSeries,
-    stroke: "Black",
+    stroke: appTheme.DarkIndigo,
     strokeThickness: 1,
     dataPointWidthMode: EDataPointWidthMode.Relative,
     dataPointWidth: 0.5,
-    fill: "steelblue",
+    fill: appTheme.VividBlue,
     opacity: 0.8,
     // strokeDashArray: [5, 7], // support for the box does not work ???
     whiskers: {
-      stroke: "darkred",
+      stroke: appTheme.VividRed,
       strokeThickness: 2,
       strokeDashArray: [5, 5],
     },
     cap: {
-      stroke: "yellow",
+      stroke: appTheme.VividOrange,
       strokeThickness: 2,
       dataPointWidth: 0.3,
     },
     medianLine: {
-      stroke: "white",
+      stroke: appTheme.White,
       strokeThickness: 2,
     },
   });
@@ -138,9 +139,12 @@ export const boxplotInitializationFunction2 = async (
   const { sciChartSurface, wasmContext } = await SciChartSurface.create(
     rootElement,
     {
-      theme: new SciChartJsNavyTheme(),
+      theme: appTheme.SciChartJsTheme,
     }
   );
+
+  const isVertical = false;
+  const isXCategoryAxis = false;
 
   const configCategoryAxis: ICategoryAxisOptions = {
     labelFormat: ENumericFormat.Decimal,
@@ -192,25 +196,25 @@ export const boxplotInitializationFunction2 = async (
 
   const boxSeries = new FastBoxPlotRenderableSeries(wasmContext, {
     dataSeries: boxPlotDataSeries,
-    stroke: "green",
+    stroke: appTheme.Black,
     strokeThickness: 1,
     dataPointWidthMode: EDataPointWidthMode.Relative,
     dataPointWidth: 0.5,
-    fill: "lightgreen",
+    fill: appTheme.VividGreen,
     opacity: 0.6,
     // strokeDashArray: [5, 7], // support for the box does not work ???
     whiskers: {
-      stroke: "green",
+      stroke: appTheme.VividGreen,
       strokeThickness: 2,
       //   strokeDashArray: [5, 5],
     },
     cap: {
-      stroke: "green",
+      stroke: appTheme.VividGreen,
       strokeThickness: 2,
       dataPointWidth: 0.3,
     },
     medianLine: {
-      stroke: "darkgreen",
+      stroke: appTheme.Black,
       strokeThickness: 2,
     },
   });
@@ -225,9 +229,12 @@ export const boxplotInitializationFunction3 = async (
   const { sciChartSurface, wasmContext } = await SciChartSurface.create(
     rootElement,
     {
-      theme: new SciChartJsNavyTheme(),
+      theme: appTheme.SciChartJsTheme,
     }
   );
+
+  const isVertical = true;
+  const isXCategoryAxis = false;
 
   const configCategoryAxis: ICategoryAxisOptions = {
     labelFormat: ENumericFormat.Decimal,
@@ -263,9 +270,9 @@ export const boxplotInitializationFunction3 = async (
 
   const xValues = [4, 5, 6];
   const minimumValues = [0, 1, 0.5];
-  const maximumValues = [10, 9, 9.5];
-  const medianValues = [4.5, 5.5, 5];
-  const lowerQuartileValues = [3, 4, 3.5];
+  const maximumValues = [8, 9, 10];
+  const medianValues = [4.5, 4, 5];
+  const lowerQuartileValues = [3, 2, 3.5];
   const upperQuartileValues = [7, 6, 6.5];
 
   const boxPlotDataSeries = new BoxPlotDataSeries(wasmContext, {
@@ -279,25 +286,25 @@ export const boxplotInitializationFunction3 = async (
 
   const boxSeries = new FastBoxPlotRenderableSeries(wasmContext, {
     dataSeries: boxPlotDataSeries,
-    stroke: "darkred",
+    stroke: appTheme.VividRed,
     strokeThickness: 1,
     dataPointWidthMode: EDataPointWidthMode.Relative,
     dataPointWidth: 0.5,
-    fill: "red",
+    fill: appTheme.VividRed,
     opacity: 0.6,
     // strokeDashArray: [5, 7], // support for the box does not work ???
     whiskers: {
-      stroke: "darkred",
+      stroke: appTheme.VividRed,
       strokeThickness: 2,
       //   strokeDashArray: [5, 5],
     },
     cap: {
-      stroke: "darkred",
+      stroke: appTheme.VividRed,
       strokeThickness: 2,
       dataPointWidth: 0.3,
     },
     medianLine: {
-      stroke: "darkred",
+      stroke: appTheme.VividRed,
       strokeThickness: 2,
     },
   });
@@ -312,9 +319,12 @@ export const boxplotInitializationFunction4 = async (
   const { sciChartSurface, wasmContext } = await SciChartSurface.create(
     rootElement,
     {
-      theme: new SciChartJsNavyTheme(),
+      theme: appTheme.SciChartJsTheme,
     }
   );
+
+  const isVertical = false;
+  const isXCategoryAxis = false;
 
   const configCategoryAxis: ICategoryAxisOptions = {
     labelFormat: ENumericFormat.Decimal,
@@ -349,10 +359,10 @@ export const boxplotInitializationFunction4 = async (
   );
 
   const xValues = [4, 5, 6];
-  const minimumValues = [0, 1, 0.5];
-  const maximumValues = [10, 9, 9.5];
-  const medianValues = [4.5, 5.5, 5];
-  const lowerQuartileValues = [3, 4, 3.5];
+  const minimumValues = [0, 0, 0.5];
+  const maximumValues = [10, 9, 8];
+  const medianValues = [4.5, 4, 5];
+  const lowerQuartileValues = [3, 2, 3.5];
   const upperQuartileValues = [7, 6, 6.5];
 
   const boxPlotDataSeries = new BoxPlotDataSeries(wasmContext, {
@@ -366,25 +376,25 @@ export const boxplotInitializationFunction4 = async (
 
   const boxSeries = new FastBoxPlotRenderableSeries(wasmContext, {
     dataSeries: boxPlotDataSeries,
-    stroke: "steelblue",
+    stroke: appTheme.MutedBlue,
     strokeThickness: 1,
     dataPointWidthMode: EDataPointWidthMode.Relative,
     dataPointWidth: 0.5,
-    fill: "cornflowerblue",
+    fill: appTheme.MutedBlue,
     opacity: 0.4,
     // strokeDashArray: [5, 7], // support for the box does not work ???
     whiskers: {
-      stroke: "steelblue",
+      stroke: appTheme.MutedBlue,
       strokeThickness: 2,
       //   strokeDashArray: [5, 5],
     },
     cap: {
-      stroke: "steelblue",
+      stroke: appTheme.MutedBlue,
       strokeThickness: 2,
       dataPointWidth: 0.3,
     },
     medianLine: {
-      stroke: "blue",
+      stroke: appTheme.MutedBlue,
       strokeThickness: 2,
     },
   });

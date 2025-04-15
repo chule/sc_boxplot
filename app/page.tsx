@@ -10,13 +10,13 @@ import {
 
 import {ChartGroupLoader} from "./ChartGroupLoader";
 
-/**
- * A function executed within SciChartReact with provided chart root element,
- * creates a SciChartSurface instance and returns a reference to it.
- *
- * @param {string | HTMLDivElement} rootElement
- * @returns {Promise<{sciChartSurface: SciChartSurface}>}
- */
+// /**
+//  * A function executed within SciChartReact with provided chart root element,
+//  * creates a SciChartSurface instance and returns a reference to it.
+//  *
+//  * @param {string | HTMLDivElement} rootElement
+//  * @returns {Promise<{sciChartSurface: SciChartSurface}>}
+//  */
 
 const BasicChartWithInitFunction = () => (
   <div className="flex flex-row min-h-screen justify-center items-center">

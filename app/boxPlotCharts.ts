@@ -33,9 +33,9 @@ class CustomLabelProvider extends LabelProviderBase2D {
     return (dataValue: number) => {
       if (dataValue === 4.5 || dataValue === 5.5) return "";
 
-      if (dataValue === 4) return "first";
-      if (dataValue === 5) return "second";
-      if (dataValue === 6) return "third";
+      if (dataValue === 4) return "P1";
+      if (dataValue === 5) return "P2";
+      if (dataValue === 6) return "P3";
       return dataValue.toFixed(1);
     };
   }
